@@ -1,7 +1,7 @@
 import {Suspense} from "react";
-import {CoinOverview} from "@/components/home/CoinOverview";
 import TrendingCoins from "@/components/home/TrendingCoins";
 import {CoinOverviewFallback, TrendingCoinsFallback} from "@/components/home/fallback";
+import CoinOverview from "@/components/home/CoinOverview";
 
 const Page = async () => {
 
