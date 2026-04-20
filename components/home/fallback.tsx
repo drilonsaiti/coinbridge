@@ -28,7 +28,7 @@ export const CoinOverviewFallback = () => {
 export const TrendingCoinsFallback = () => {
     const skeletonData = Array(6).fill({});
     
-    const columns: DataTableColumn<any>[] = [
+    const columns: DataTableColumn<object>[] = [
         {
             header: 'Name',
             cellClassName: 'name-cell',
