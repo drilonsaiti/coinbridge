@@ -74,3 +74,66 @@ export const TrendingCoinsFallback = () => {
         </div>
     );
 };
+
+export const CategoriesFallback = () => {
+    const skeletonData = Array(10).fill({});
+
+    const columns: DataTableColumn<object>[] = [
+        {
+            header: 'Category',
+            cellClassName: 'category-cell',
+            cell: () => (
+                <div className="category-skeleton bg-dark-400 rounded-sm" />
+            )
+        },
+        {
+            header: 'Top Gainers',
+            cellClassName: 'top-gainers-cell',
+            cell: () => (
+                <div className="flex gap-1">
+                    {[1, 2, 3].map((i) => (
+                        <div key={i} className="coin-skeleton bg-dark-400" />
+                    ))}
+                </div>
+            )
+        },
+        {
+            header: '24h Change',
+            cellClassName: 'change-header-cell',
+            cell: () => (
+                <div className="change-cell">
+                    <div className="change-icon bg-dark-400" />
+                    <div className="value-skeleton-sm bg-dark-400 rounded-sm" />
+                </div>
+            ),
+        },
+        {
+            header: 'Market Cap',
+            cellClassName: 'market-cap-cell',
+            cell: () => (
+                <div className="value-skeleton-md bg-dark-400 rounded-sm" />
+            )
+        },
+        {
+            header: '24h Volume',
+            cellClassName: 'volume-cell',
+            cell: () => (
+                <div className="value-skeleton-lg bg-dark-400 rounded-sm" />
+            )
+        }
+    ];
+
+    return (
+        <div id="categories-fallback" className="animate-pulse">
+            <h4>Top Categories</h4>
+            <DataTable
+                columns={columns}
+                data={skeletonData}
+                rowKey={(_, index) => index}
+                tableClassName="categories-table"
+                headerCellClassName="py-3!"
+                bodyCellClassName="py-2!"
+            />
+        </div>
+    );
+};
