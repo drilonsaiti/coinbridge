@@ -3,6 +3,7 @@ import Image from "next/image";
 import {cn, formatCurrency, formatPercentage} from "@/lib/utils";
 import DataTable from "@/components/DataTable";
 import CoinsPagination from "@/components/CoinsPagination";
+import Link from "next/link";
 
 const Page = async ({searchParams}: NextPageProps) => {
     const { page } = await searchParams;
@@ -31,7 +32,12 @@ const Page = async ({searchParams}: NextPageProps) => {
         {
             header: 'Rank',
             cellClassName: 'rank-cell',
-            cell: (coin: CoinMarketData) => (coin.market_cap_rank)
+            cell: (coin) => (
+                <>
+                    #{coin.market_cap_rank}
+                    <Link href={`/coins/${coin.id}`} aria-label="View coin" />
+                </>
+            ),
         },
         {
             header: 'Token',

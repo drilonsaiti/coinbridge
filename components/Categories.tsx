@@ -36,7 +36,7 @@ const Categories = async () => {
 
         {
             header: '24h Change',
-            cellClassName: 'chage-header-cell',
+            cellClassName: 'change-header-cell',
             cell: (category: Category) => {
                 const isTrendingUp = category.market_cap_change_24h > 0;
 
