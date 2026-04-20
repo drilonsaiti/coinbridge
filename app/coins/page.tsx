@@ -87,7 +87,7 @@ const Page = async ({searchParams}: NextPageProps) => {
     return (
         <main id="coins-page">
             <div className="content">
-                <h4>Top Categories</h4>
+                <h4>All Coins</h4>
                 <DataTable
                     columns={columns}
                     data={coins?.slice(0, 10) ?? []}
